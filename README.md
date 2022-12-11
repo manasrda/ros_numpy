@@ -1,7 +1,7 @@
 ros_numpy
 =====================================
-## Note: This is the same as the original ros_numpy package just edited to be OS independent and installable using pip.
--------------------------------------  
+Note: This is the same as the original ros_numpy package just edited to be OS independent and installable using pip.
+=====================================  
 Tools for converting ROS messages to and from numpy arrays. Contains two functions:
 
 * `arr = numpify(msg, ...)` - try to get a numpy object from a message
