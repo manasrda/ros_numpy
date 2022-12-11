@@ -60,7 +60,7 @@ def numpy_to_quat(arr):
 
 @converts_to_numpy(Transform)
 def transform_to_numpy(msg):
-	from tf import transformations
+	from . import transformations
 
 	return np.dot(
         transformations.translation_matrix(numpify(msg.translation)),
@@ -69,7 +69,7 @@ def transform_to_numpy(msg):
 
 @converts_from_numpy(Transform)
 def numpy_to_transform(arr):
-	from tf import transformations
+	from . import transformations
 
 	shape, rest = arr.shape[:-2], arr.shape[-2:]
 	assert rest == (4,4)
@@ -92,7 +92,7 @@ def numpy_to_transform(arr):
 
 @converts_to_numpy(Pose)
 def pose_to_numpy(msg):
-	from tf import transformations
+	from . import transformations
 
 	return np.dot(
         transformations.translation_matrix(numpify(msg.position)),
@@ -101,7 +101,7 @@ def pose_to_numpy(msg):
 
 @converts_from_numpy(Pose)
 def numpy_to_pose(arr):
-	from tf import transformations
+	from . import transformations
 
 	shape, rest = arr.shape[:-2], arr.shape[-2:]
 	assert rest == (4,4)
