@@ -1,5 +1,5 @@
 Metadata-Version: 2.1
-Name: ros-numpy
+Name: rosnumpy
 Version: 0.0.1
 Summary: Tools for converting ROS messages to and from numpy arrays.
 Author-email: manasrda <manasrda@mail.uc.edu>
@@ -12,7 +12,10 @@ Requires-Python: >=3.6
 Description-Content-Type: text/markdown
 License-File: LICENSE
 
-# ros_numpy
+ros_numpy
+=====================================
+Note: This is the same as the original ros_numpy package just edited to be OS independent and installable using pip.
+=====================================  
 Tools for converting ROS messages to and from numpy arrays. Contains two functions:
 
 * `arr = numpify(msg, ...)` - try to get a numpy object from a message
