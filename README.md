@@ -7,6 +7,11 @@ Tools for converting ROS messages to and from numpy arrays. Contains two functio
 * `arr = numpify(msg, ...)` - try to get a numpy object from a message
 * `msg = msgify(MessageType, arr, ...)` - try and convert a numpy object to a message
 
+Install using:
+```
+pip install rosnumpy
+```
+
 Currently supports:
 
 * `sensor_msgs.msg.PointCloud2` &harr; structured `np.array`:
