@@ -37,5 +37,15 @@ def get_img_from_ros_image_msg(msg):
 
 img_array =  get_img_from_ros_image_msg(msg)
 ```
+### The (msg) in previous examples is coming here:
+```Python
+import rosbag
+
+bag_path = r'path to .bag file here'
+bag = rosbag.Bag(bag_path)
+for topic, msg, t in bag.read_messages(topics=['/PointCloud2_topic_here']):
+    pc_array =  get_pc_from_pc2_msg(msg)
+```
+
 
 
