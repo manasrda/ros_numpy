@@ -1,64 +1,41 @@
-ros_numpy
-=====================================
-Note: This is the same as the original ros_numpy package by  [eric-wieser](https://github.com/eric-wieser) just edited to be OS independent and installable using pip.
-=====================================  
+# <div align="center">ros_numpy</div>
 
-Install using:
+Note: This is the same as the original ros_numpy package by  [eric-wieser](https://github.com/eric-wieser) just edited to be OS independent and installable using pip.
+
+## <div align="left">Install using:</div>
 ```
 pip install rosnumpy
 ```
 
-Tools for converting ROS messages to and from numpy arrays. Contains two functions:
+## <div align="center">Quick Start</div>
+### PointCloud2 msg to Numpy array:
+```Python
+import ros_numpy
+import sensor_msgs
 
-* `arr = numpify(msg, ...)` - try to get a numpy object from a message
-* `msg = msgify(MessageType, arr, ...)` - try and convert a numpy object to a message
+def get_pc_from_ros_pc2_msg(msg):
+    """ Returns point-cloud as a structured numpy array. 
+    Note: can be used with any topic of message type 'sensor_msgs/PointCloud2'
+    """
+    msg.__class__ = sensor_msgs.msg.PointCloud2
+    return ros_numpy.numpify(msg)
 
-Currently supports:
-
-* `sensor_msgs.msg.PointCloud2` &harr; structured `np.array`:
-   
-   ```python
-   data = np.zeros(100, dtype=[
-     ('x', np.float32),
-     ('y', np.float32),
-     ('vectors', np.float32, (3,))
-   ])
-   data['x'] = np.arange(100)
-   data['y'] = data['x']*2
-   data['vectors'] = np.arange(100)[:,np.newaxis]
-   
-   msg = ros_numpy.msgify(PointCloud2, data)
-   ```
-   
-   ```
-   data = ros_numpy.numpify(msg)
-   ```
-
-* `sensor_msgs.msg.Image` &harr; 2/3-D `np.array`, similar to the function of `cv_bridge`, but without the dependency on `cv2`
-* `nav_msgs.msg.OccupancyGrid` &harr; `np.ma.array`
-* `geometry.msg.Vector3` &harr; 1-D `np.array`. `hom=True` gives `[x, y, z, 0]`
-* `geometry.msg.Point` &harr; 1-D `np.array`. `hom=True` gives `[x, y, z, 1]`
-* `geometry.msg.Quaternion` &harr; 1-D `np.array`, `[x, y, z, w]`
-* `geometry.msg.Transform` &harr; 4&times;4 `np.array`, the homogeneous transformation matrix
-* `geometry.msg.Pose` &harr; 4&times;4 `np.array`, the homogeneous transformation matrix from the origin
-
-Support for more types can be added with:
-
-```python
-@ros_numpy.converts_to_numpy(SomeMessageClass)
-def convert(my_msg):
-    return np.array(...)
-
-@ros_numpy.converts_from_numpy(SomeMessageClass)
-def convert(my_array):
-    return SomeMessageClass(...)
+pc_array =  get_pc_from_pc2_msg(msg)
 ```
 
-Any extra args or kwargs to `numpify` or `msgify` will be forwarded to your conversion function
+### Image msg to Numpy array:
+```Python
+import ros_numpy
+import sensor_msgs
+
+def get_img_from_ros_image_msg(msg):
+    """ Returns image as a numpy array. 
+    Note: can be used with any topic of message type 'sensor_msgs/Image'
+    """
+    msg.__class__ = sensor_msgs.msg.Image
+    return ros_numpy.numpify(msg)
+
+img_array =  get_img_from_ros_image_msg(msg)
+```
 
 
-## Future work
-
-* Add simple conversions for:
-
-  * `geometry_msgs.msg.Inertia`
