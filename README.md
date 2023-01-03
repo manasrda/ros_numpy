@@ -1,6 +1,7 @@
 # <div align="center">ros_numpy</div>
 
 Note: This is the same as the original ros_numpy package by  [eric-wieser](https://github.com/eric-wieser) just edited to be OS independent and installable using pip.
+Loosely tested, but works perfectly on Windows and Ubuntu for "numpifying" PointCloud2 and Image messages from bag files.
 
 ## <div align="left">Install using:</div>
 ```
