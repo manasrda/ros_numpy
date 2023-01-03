@@ -38,7 +38,7 @@ def get_img_from_ros_image_msg(msg):
 
 img_array =  get_img_from_ros_image_msg(msg)
 ```
-### The (msg) in previous examples is coming here:
+### The (msg) in previous examples is coming from here:
 ```Python
 import rosbag
 
