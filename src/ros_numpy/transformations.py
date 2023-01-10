@@ -29,7 +29,7 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
-"""Homogeneous Transformation Matrices and Quaternions.
+r"""Homogeneous Transformation Matrices and Quaternions.
 A library for calculating 4x4 matrices for translating, rotating, reflecting,
 scaling, shearing, projecting, orthogonalizing, and superimposing arrays of
 3D homogeneous coordinates as well as for converting between rotation matrices,
@@ -788,7 +788,7 @@ def orthogonalization_matrix(lengths, angles):
 
 
 def superimposition_matrix(v0, v1, scaling=False, usesvd=True):
-    """Return matrix to transform given vector set into second vector set.
+    r"""Return matrix to transform given vector set into second vector set.
     v0 and v1 are shape (3, \*) or (4, \*) arrays of at least 3 vectors.
     If usesvd is True, the weighted sum of squared deviations (RMSD) is
     minimized according to the algorithm by W. Kabsch [8]. Otherwise the
