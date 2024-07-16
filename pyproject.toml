@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "rosnumpy"
-version = "0.0.6"
+version = "0.0.6.1"
 authors = [
   { name="manasrda", email="manasrda@mail.uc.edu" },
 ]
@@ -21,6 +21,7 @@ dependencies = [
             "bagpy",
             "numpy",
             "genpy",
+            "bagpy",
 ]
 
 [project.urls]
